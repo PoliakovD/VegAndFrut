@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="VegAndFrut.Components.InputComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="Component">
+    <Grid DataContext="{Binding ElementName=Component}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Path=Label, Mode=OneWay}"
+               Target="{Binding ElementName=Input}"
+               Grid.Column="0" />
+        <TextBox x:Name="Input"
+                 Text="{Binding Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="1" />
+    </Grid>
+</UserControl>

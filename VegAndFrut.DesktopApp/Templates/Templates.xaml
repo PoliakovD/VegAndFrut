@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:VegAndFrut.Models;assembly=VegAndFrut.Models">
+    <DataTemplate x:Key="Template_Product"
+                  DataType="{x:Type TypeName=m:Product}">
+        <TextBlock>
+            <TextBlock.Text>
+                <MultiBinding StringFormat="#{0}: {1}  {2}  {3} ({4} ккал.)">
+                    <Binding Path="Id"/>
+                    <Binding Path="Name"/>
+                    <Binding Path="Type"/>
+                    <Binding Path="Color"/>
+                    <Binding Path="Calories"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+    </DataTemplate>
+</ResourceDictionary>
