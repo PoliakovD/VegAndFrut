@@ -26,4 +26,8 @@
       </Page>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="5.0.0" />
+    </ItemGroup>
+
 </Project>

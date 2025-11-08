@@ -8,7 +8,7 @@ public partial class InputComponent : UserControl
     public static readonly DependencyProperty ValueProperty =
         DependencyProperty.Register(nameof(Value), typeof(object), typeof(InputComponent));
 
-    private object? Value
+    public object? Value
     {
         get => GetValue(ValueProperty);
         set => SetValue(ValueProperty, value);
@@ -17,10 +17,10 @@ public partial class InputComponent : UserControl
     public static readonly DependencyProperty LabelProperty =
         DependencyProperty.Register(nameof(Label), typeof(string), typeof(InputComponent));
 
-    private string Label
+    public string Label
     {
-        get => (string)GetValue(ValueProperty);
-        set => SetValue(ValueProperty, value);
+        get => (string)GetValue(LabelProperty);
+        set => SetValue(LabelProperty, value);
     }
 
     public InputComponent()

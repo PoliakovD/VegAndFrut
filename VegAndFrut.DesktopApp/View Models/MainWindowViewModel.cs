@@ -11,6 +11,8 @@ public class MainWindowViewModel : ViewModelBase
     private decimal _max;
     private decimal _min;
     private decimal _avg;
+    private decimal _fromValue;
+    private decimal _toValue;
 
     private readonly Service _service = new();
 
@@ -28,6 +30,18 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _avg;
         set => SetField(ref _avg, value);
+    }
+
+    public decimal FromValue
+    {
+        get => _fromValue;
+        set => SetField(ref _fromValue, value);
+    }
+
+    public decimal ToValue
+    {
+        get => _toValue;
+        set => SetField(ref _toValue, value);
     }
     
     public ObservableCollection<string> ShowList { get; private set; } = [];
@@ -72,9 +86,11 @@ public class MainWindowViewModel : ViewModelBase
         }
 
         ShowAllInfo();
-        Max = Products.Max(p => p.Calories);
-        Min = Products.Min(p => p.Calories);
-        Avg = Products.Average(p => p.Calories);
+        Max = _service.GetMax(products);
+        Min = _service.GetMin(products);
+        Avg = _service.GetAvg(products);
+        FromValue = Min;
+        ToValue = Max;
     }
 
     private void ShowAllInfo(object? parameter = null)
