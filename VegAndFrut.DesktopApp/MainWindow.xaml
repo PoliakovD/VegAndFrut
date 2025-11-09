@@ -5,8 +5,10 @@
         xmlns:c="clr-namespace:VegAndFrut.Components"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:conv="clr-namespace:VegAndFrut.Converters"
+        Height="500"
+        Width="750"
         Title="MainWindow">
-    
+
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
@@ -53,19 +55,19 @@
             </StatusBar>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <ListBox ItemsSource="{Binding Path=ShowList}"
                          Grid.Column="0">
                 </ListBox>
                 <StackPanel Grid.Column="1" Orientation="Vertical">
-                    <Label Content="Filter"/>
-                    <Expander Header="Type" Content="{Binding TypesCheckBoxes}"/>
-                    
-                    <Expander Header="Color" Content="{Binding ColorsCheckBoxes}"/>
-                      
-                    
+                    <Label Content="Filter" />
+                    <Expander Header="Type" Content="{Binding TypesCheckBoxes}" />
+
+                    <Expander Header="Color" Content="{Binding ColorsCheckBoxes}" />
+
+
                     <Expander Header="Calories">
                         <StackPanel x:Name="ExpanderCaloriesProduct" Orientation="Vertical">
                             <c:InputComponent Label="From"
@@ -89,7 +91,11 @@
                                 Height="30" />
                         </StackPanel>
                     </Expander>
-                    <Button Content="Filter" Command="{Binding ComandFilter}"/>
+
+                    <TextBlock Text="{Binding ShowList.Count, StringFormat=Total found: \{0\} rows}"></TextBlock>
+
+
+                    <Button Content="Filter" Command="{Binding ComandFilter}" />
                 </StackPanel>
             </Grid>
         </DockPanel>

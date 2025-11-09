@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/4ee3abce-9d80-419f-be8f-8b506477ac81/console.sql" value="4ee3abce-9d80-419f-be8f-8b506477ac81" />
     <file url="file://$PROJECT_DIR$/VegAndFrut.DAL/CreateDB.sql" value="4ee3abce-9d80-419f-be8f-8b506477ac81" />
     <file url="file://$PROJECT_DIR$/VegAndFrut.DAL/DbContext.cs" value="4ee3abce-9d80-419f-be8f-8b506477ac81" />
   </component>

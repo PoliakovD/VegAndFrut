@@ -137,8 +137,8 @@ public class DbContext : ICrud<Product>
                            """;
         var command = new NpgsqlCommand(sql, _connection);
         
-        command.Parameters.AddWithValue("@types", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text, types?.ToArray());
-        command.Parameters.AddWithValue("@colors", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text, colors?.ToArray());
+        command.Parameters.AddWithValue("@types", NpgsqlDbType.Array | NpgsqlDbType.Text, types.ToArray());
+        command.Parameters.AddWithValue("@colors", NpgsqlDbType.Array | NpgsqlDbType.Text, colors.ToArray());
         command.Parameters.AddWithValue("fromCalories" ,fromCalories);
         command.Parameters.AddWithValue("toCalories", toCalories);
         
