@@ -60,11 +60,12 @@
                          Grid.Column="0">
                 </ListBox>
                 <StackPanel Grid.Column="1" Orientation="Vertical">
-                    <Expander Header="Type">
-                        <StackPanel x:Name="ExpanderTypeProduct" Orientation="Vertical">
-                            <CheckBox Content="All" />
-                        </StackPanel>
-                    </Expander>
+                    <Label Content="Filter"/>
+                    <Expander Header="Type" Content="{Binding TypesCheckBoxes}"/>
+                    
+                    <Expander Header="Color" Content="{Binding ColorsCheckBoxes}"/>
+                      
+                    
                     <Expander Header="Calories">
                         <StackPanel x:Name="ExpanderCaloriesProduct" Orientation="Vertical">
                             <c:InputComponent Label="From"
@@ -86,14 +87,11 @@
                                 Orientation="Horizontal"
                                 Margin="10"
                                 Height="30" />
-
                         </StackPanel>
                     </Expander>
-
+                    <Button Content="Filter" Command="{Binding ComandFilter}"/>
                 </StackPanel>
             </Grid>
-
         </DockPanel>
-
     </Grid>
 </Window>

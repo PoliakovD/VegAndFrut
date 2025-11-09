@@ -5,7 +5,7 @@ namespace VegAndFrut.BLL;
 
 public class Service
 {
-    private readonly ICrud<Product> _crud;
+    private readonly DbContext _crud;
 
     public Service()
     {
@@ -13,6 +13,10 @@ public class Service
     }
     
     public IEnumerable<Product> GetAll() => _crud.GetAll();
+    
+    public IEnumerable<string> GetFiltered(
+        IEnumerable<string?>? types = null, IEnumerable<string?>? colors = null, decimal? fromCalories = null,
+        decimal? toCalories = null) => _crud.GetFiltered(types , colors , fromCalories ,toCalories);
 
     public IEnumerable<Product> GetByName(string name,IEnumerable<Product>? products = null)
     {
@@ -20,11 +24,7 @@ public class Service
         return products.Where(product => product.Name.Contains(name));
     }
 
-    public IEnumerable<string> GetTypes(IEnumerable<Product>? products = null)
-    {
-        if (products is null) products = GetAll();
-        return products.Select(x => x.Type).Distinct();
-    }
+    public IEnumerable<string> GetTypes(IEnumerable<Product>? products = null) => _crud.GetAllTypes();
     public IEnumerable<string> GetColors(IEnumerable<Product>? products = null)
     {
         if (products is null) products = GetAll();
@@ -50,4 +50,6 @@ public class Service
     public bool Add(Product product) => _crud.Insert(product);
     public bool Delete(Product product) => _crud.Delete(product);
     public bool Update(Product product) => _crud.Update(product);
+    
+    
 }
